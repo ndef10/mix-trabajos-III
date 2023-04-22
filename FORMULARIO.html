@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <div>
+        <div style="width: 40%;margin: 0 auto">
+            <h2>
+                Escríbenos !!!
+            </h2>
+            <div class="resultado" style="color:green;font-style: italic">
+            </div>
+            <form id="formulario">
+                <div>
+                    <div style="display: flex;flex-direction: column;">
+                        <label>
+                            Nombre completo
+                        </label>
+                        <input id="nombre" type="text">
+                        <p class="errorNombre" style="color:red;font-style: italic;"></p>
+                    </div>
+                    <div style="display: flex;flex-direction: column;">
+                        <label>
+                            Asunto
+                        </label>
+                        <input id="asunto" type="text">
+                        <p class="errorAsunto" style="color:red;font-style: italic;"></p>
+                    </div>
+                </div>
+                <div style="display: flex;flex-direction: column;">
+                    <label>
+                        Mensaje
+                    </label>
+                    <textarea id="mensaje"></textarea>
+                    <p class="errorMensaje" style="color:red;font-style: italic;"></p>
+                </div>
+                <div>
+                    <button id="botton" type="submit">
+                        Envíar mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+    // Escríbe aquí tu código
+
+    //Obtener formulario
+    const form = document.getElementById('formulario');
+    //crear listener que obtenga el valor de input
+    form.addEventListener('submit', onSubmit);
+
+    //añadir listener al evento submit    
+    function onSubmit(event){
+         event.preventDefault();
+         console.log('FORM SUBMITTED');
+         inputValidator('nombre','errorNombre','Nombre');
+         inputValidator('asunto','errorAsunto','Asunto');
+         inputValidator('mensaje','errorMensaje','Mensaje');
+
+    }
+     //evaluar si el valor cumple patron
+    function inputValidator(id, clase, nombre) {
+        const input = document.getElementById(id);
+        const value = input.value;
+        const pattern =/[a-zA-Z]/gim;
+        const isValid = pattern.test(value);
+
+        //si hay error mostrar mensaje
+        const errorElem = document.getElementsByClassName(clase);
+        errorElem[0].innerText = isValid ?'':`El ${nombre} sólo puede poseer letras`; 
+
+        //si está correcto mostrar mensaje
+        let res = isValid;
+        console.log(res);
+        if (res === false) {
+            let resultado =document.getElementsByClassName('resultado');
+            resultado[0].innerText = '';
+        
+        } else {
+            let resultado =document.getElementsByClassName('resultado');
+            resultado[0].innerText = 'Mensaje enviado con éxito';
+        }   
+     
+    }
+
+    </script>
+</body>
+
+</html>
