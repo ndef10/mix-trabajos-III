@@ -3,7 +3,7 @@
 Este es un sitio web realizado durante el bootcam
 
 ## Tecnologías utilizadas
-Este sitio web está construido con HTML, CSS Yy JavaScript.
+Este sitio web está construido con HTML.
 
 ## Requerimientos a cumplir:
 1. Desarrollar un código para validar un formulario de contacto utilizando el evento
@@ -34,4 +34,3 @@ Puede ver una demo del sitio web en el siguiente enlace: (https://www.loom.com/s
 
 
 
-https://www.loom.com/share/ffd56f05b4e347129de57ca2fe1834b4
